@@ -54,6 +54,7 @@ bot.on('text', async ctx => {
                 })
             }
         }).catch(err=>{
+            console.log(err)
             global.message.push({
                 callback: async () => {
                     ctx.reply('возникла ошибка, проверьте правильность написания id')
@@ -131,6 +132,7 @@ bot.on('document', async ctx => {
                                 }
                             });
                         }).catch(err=>{
+                            console.log(err)
                             global.message.push({
                                 callback: async () => {
                                     ctx.reply('возникла ошибка, проверьте правильность написания id')
