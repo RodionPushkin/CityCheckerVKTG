@@ -35,6 +35,7 @@ bot.on('text', async ctx => {
     }else{
         let text = ''
         await axios.get(`https://api.vk.com/method/users.get?user_ids=${users.join()}&fields=city,domain&access_token=${vktoken}&v=5.131`).then(res=>{
+            console.log(res.data)
             res.data.response.forEach(user=>{
                 console.log(user)
                 text+=`id${user.id}|${user.city ? user.city.title : '-'}\n`
@@ -96,6 +97,7 @@ bot.on('document', async ctx => {
                     }else{
                         let text = ''
                         await axios.get(`https://api.vk.com/method/users.get?user_ids=${users.join()}&fields=city,domain&access_token=${vktoken}&v=5.131`).then(res=>{
+                            console.log(res.data)
                             res.data.response.forEach(user=>{
                                 // console.log(user)
                                 text+=`id${user.id}|${user.city ? user.city.title : '-'}\n`
